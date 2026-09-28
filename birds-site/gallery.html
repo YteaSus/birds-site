@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Сайт о птицах: виды, среда обитания, миграция, охрана">
+    <meta name="keywords" content="птицы, орнитология, виды птиц, миграция, охрана птиц">
+    <meta name="author" content="Суслов Яков">
+    <title>Мир птиц — Галерея</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; background: #f4f9ff; color: #222; }
+        header { background: #2c5f8a; color: white; padding: 15px; }
+        header h1 { margin: 0 0 10px 0; }
+        nav a { color: white; margin-right: 15px; text-decoration: none; }
+        nav a:hover { text-decoration: underline; }
+        main { padding: 20px; max-width: 900px; margin: 20px auto; background: white; border-radius: 8px; }
+        footer { background: #2c5f8a; color: white; text-align: center; padding: 10px; margin-top: 20px; }
+        .red { color: red; }
+        .big { font-size: 24px; }
+        .green-small { color: green; font-size: 12px; }
+        img { max-width: 100%; height: auto; margin: 5px; }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 10px;
+            background: #fafcff;
+            width: 320px;
+            text-align: center;
+            box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+        }
+        .card img {
+            border-radius: 6px;
+            display: block;
+            margin: 0 auto 10px;
+        }
+        .card figcaption {
+            padding: 5px;
+            line-height: 1.5;
+        }
+        .card em {
+            color: #2c5f8a;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🐦 Мир птиц</h1>
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="gallery.html">Галерея</a>
+            <a href="species.html">Виды</a>
+            <a href="habitats.html">Среда обитания</a>
+            <a href="feeding.html">Питание</a>
+            <a href="migration.html">Миграция</a>
+            <a href="conservation.html">Охрана</a>
+            <a href="links.html">Ссылки</a>
+            <a href="guestbook.html">Гостевая</a>
+            <a href="about.html">О сайте</a>
+        </nav>
+    </header>
+
+    <main>
+    <h2>Галерея птиц</h2>
+    <p>На этой странице — фотографии разных птиц с описаниями.</p>
+
+    <div class="gallery">
+
+        <figure class="card">
+            <img src="img/bird1.jpg" alt="Зяблик" width="300">
+            <figcaption>
+                <strong>Зяблик</strong><br>
+                <em>Fringilla coelebs</em><br>
+                <span class="green-small">Певчая птица семейства вьюрковых. Длина тела — около 15 см. Обитает в лесах и парках Европы и Азии.</span>
+            </figcaption>
+        </figure>
+
+        <figure class="card">
+            <img src="img/bird2.jpg" alt="Вальдшнеп" width="300">
+            <figcaption>
+                <strong>Вальдшнеп</strong><br>
+                <em>Scolopax rusticola</em><br>
+                <span class="green-small">Лесной кулик семейства бекасовых. Длина тела — 33–38 см. Ведёт скрытный ночной образ жизни, обитает в сырых лесах.</span>
+            </figcaption>
+        </figure>
+
+        <figure class="card">
+            <img src="img/bird3.jpg" alt="Козодой" width="300">
+            <figcaption>
+                <strong>Козодой</strong><br>
+                <em>Caprimulgus europaeus</em><br>
+                <span class="green-small">Ночная птица отряда козодоеобразных. Длина тела — около 26 см. Известен громким «мурлыкающим» пением по ночам.</span>
+            </figcaption>
+        </figure>
+
+    </div>
+
+    <p class="green-small">Все фотографии взяты из открытых источников.</p>
+</main>
+
+    <footer>
+        <p>&copy; 2026, сайт о птицах. Все права защищены.</p>
+    </footer>
+</body>
+</html>

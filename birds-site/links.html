@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Коллекция полезных ссылок о птицах: орнитология, охрана, наблюдения">
+    <meta name="keywords" content="птицы, орнитология, ссылки, ресурсы, наблюдение за птицами, охрана птиц">
+    <meta name="author" content="Суслов Яков">
+    <title>Мир птиц — Ссылки</title>
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            background: linear-gradient(135deg, #eaf4ff 0%, #f4f9ff 100%);
+            color: #222;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2c5f8a 0%, #1e4463 100%);
+            color: white;
+            padding: 20px 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        header h1 { margin: 0 0 12px 0; font-size: 28px; letter-spacing: 1px; }
+        nav a {
+            color: white;
+            margin-right: 18px;
+            text-decoration: none;
+            font-size: 15px;
+            padding: 6px 10px;
+            border-radius: 5px;
+            transition: background 0.2s;
+        }
+        nav a:hover { background: rgba(255,255,255,0.2); }
+        nav a.active { background: rgba(255,255,255,0.3); font-weight: bold; }
+
+        main {
+            padding: 30px;
+            max-width: 1000px;
+            margin: 30px auto;
+            background: white;
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(44, 95, 138, 0.15);
+        }
+
+        h2 {
+            color: #1e4463;
+            border-bottom: 3px solid #7fb2dd;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .intro-text {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            margin-top: 35px;
+            color: #1e4463;
+            font-size: 20px;
+            border-left: 5px solid #4a8bc2;
+            padding-left: 12px;
+        }
+
+        /* Список ссылок */
+        .links-list {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0 25px;
+        }
+        .links-list li {
+            background: linear-gradient(160deg, #ffffff 0%, #f0f7ff 100%);
+            border: 1px solid #d6e6f5;
+            border-left: 5px solid #4a8bc2;
+            border-radius: 10px;
+            padding: 14px 18px;
+            margin-bottom: 12px;
+            transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+        }
+        .links-list li:hover {
+            transform: translateX(6px);
+            box-shadow: 0 6px 15px rgba(44, 95, 138, 0.15);
+            border-left-color: #2c5f8a;
+        }
+        .links-list a {
+            color: #1e4463;
+            font-weight: bold;
+            font-size: 16px;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 4px;
+        }
+        .links-list a:hover {
+            color: #2c5f8a;
+            text-decoration: underline;
+        }
+        .links-list a::after {
+            content: " ↗";
+            font-size: 13px;
+            color: #7fb2dd;
+        }
+        .links-list .desc {
+            display: block;
+            font-size: 13px;
+            color: #555;
+            line-height: 1.5;
+            margin-top: 4px;
+        }
+        .links-list .url {
+            display: inline-block;
+            font-size: 11px;
+            color: #7a9ab8;
+            font-family: 'Consolas', monospace;
+            background: #eaf4ff;
+            padding: 2px 8px;
+            border-radius: 12px;
+            margin-top: 6px;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #1e4463, #2c5f8a);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 40px;
+            font-size: 13px;
+        }
+
+        .green-small { color: #4a8bc2; font-size: 12px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🐦 Мир птиц</h1>
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="gallery.html">Галерея</a>
+            <a href="species.html">Виды</a>
+            <a href="habitats.html">Среда обитания</a>
+            <a href="feeding.html">Питание</a>
+            <a href="migration.html">Миграция</a>
+            <a href="conservation.html">Охрана</a>
+            <a href="links.html" class="active">Ссылки</a>
+            <a href="guestbook.html">Гостевая</a>
+            <a href="about.html">О сайте</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Коллекция ссылок</h2>
+        <p class="intro-text">
+            Полезные ресурсы о птицах: научные базы данных, определители, охрана, наблюдения. 
+            Все ссылки открываются в новой вкладке.
+        </p>
+
+        <!-- НАУЧНЫЕ БАЗЫ -->
+        <h3 class="section-title">📚 Научные базы данных</h3>
+        <ul class="links-list">
+            <li>
+                <a href="https://ebird.org/" target="_blank" rel="noopener">eBird</a>
+                <span class="desc">Крупнейшая в мире база данных наблюдений за птицами. 
+                Данные собирают любители и учёные со всего мира. Можно отслеживать миграции, строить графики, 
+                находить места для наблюдений рядом с вами.</span>
+                <span class="url">ebird.org</span>
+            </li>
+            <li>
+                <a href="https://www.iucnredlist.org/" target="_blank" rel="noopener">IUCN Red List</a>
+                <span class="desc">Международная Красная книга — авторитетный источник о статусе 
+                охраны видов, включая птиц. Показывает, какие виды под угрозой исчезновения.</span>
+                <span class="url">iucnredlist.org</span>
+            </li>
+            <li>
+                <a href="https://www.birds.cornell.edu/" target="_blank" rel="noopener">Cornell Lab of Ornithology</a>
+                <span class="desc">Орнитологическая лаборатория Корнеллского университета — научные 
+                исследования, база голосов птиц Macaulay Library, образовательные проекты.</span>
+                <span class="url">birds.cornell.edu</span>
+            </li>
+            <li>
+                <a href="https://www.zoology.uni-bonn.de/" target="_blank" rel="noopener">Zoological Research Museum Alexander Koenig</a>
+                <span class="desc">Немецкий зоологический музей с крупнейшей коллекцией птиц 
+                и научными публикациями по систематике.</span>
+                <span class="url">zoology.uni-bonn.de</span>
+            </li>
+        </ul>
+
+        <!-- ОПРЕДЕЛИТЕЛИ И ЭНЦИКЛОПЕДИИ -->
+        <h3 class="section-title">🔍 Определители и энциклопедии</h3>
+        <ul class="links-list">
+            <li>
+                <a href="https://ru.wikipedia.org/wiki/Птицы" target="_blank" rel="noopener">Википедия: Птицы</a>
+                <span class="desc">Обзорная статья о классе птиц: анатомия, физиология, 
+                систематика, экология. Хорошая отправная точка для знакомства с темой.</span>
+                <span class="url">ru.wikipedia.org/wiki/Птицы</span>
+            </li>
+            <li>
+                <a href="https://www.ebirds.ru/" target="_blank" rel="noopener">Птицы России (ebirds.ru)</a>
+                <span class="desc">Русскоязычный определитель птиц России: фото, голоса, 
+                описания, карты распространения. Удобен для начинающих.</span>
+                <span class="url">ebirds.ru</span>
+            </li>
+            <li>
+                <a href="https://www.xeno-canto.org/" target="_blank" rel="noopener">xeno-canto</a>
+                <span class="desc">Огромная база голосов птиц со всего мира. Можно слушать 
+                пение, сравнивать подвиды, помогать с определением.</span>
+                <span class="url">xeno-canto.org</span>
+            </li>
+        </ul>
+
+        <!-- ОХРАНА ПРИРОДЫ -->
+        <h3 class="section-title">🛡️ Охрана птиц</h3>
+        <ul class="links-list">
+            <li>
+                <a href="https://www.rbcu.ru/" target="_blank" rel="noopener">Союз охраны птиц России</a>
+                <span class="desc">Общероссийская общественная организация. Кампании по охране 
+                редких видов, учёты птиц, просвещение, «Птица года».</span>
+                <span class="url">rbcu.ru</span>
+            </li>
+            <li>
+                <a href="https://www.birdlife.org/" target="_blank" rel="noopener">BirdLife International</a>
+                <span class="desc">Международная организация по охране птиц. Программы 
+                по сохранению видов, защите ключевых орнитологических территорий.</span>
+                <span class="url">birdlife.org</span>
+            </li>
+            <li>
+                <a href="https://www.wwf.ru/" target="_blank" rel="noopener">WWF России</a>
+                <span class="desc">Всемирный фонд дикой природы. Проекты по сохранению 
+                редких видов птиц, включая стерха, дальневосточного аиста, сапсана.</span>
+                <span class="url">wwf.ru</span>
+            </li>
+        </ul>
+
+        <!-- НАБЛЮДЕНИЯ -->
+        <h3 class="section-title">📷 Наблюдение за птицами</h3>
+        <ul class="links-list">
+            <li>
+                <a href="https://www.inaturalist.org/" target="_blank" rel="noopener">iNaturalist</a>
+                <span class="desc">Гражданская наука: фотографируете птицу — приложение помогает 
+                определить вид. Данные используют учёные.</span>
+                <span class="url">inaturalist.org</span>
+            </li>
+            <li>
+                <a href="https://merlin.allaboutbirds.org/" target="_blank" rel="noopener">Merlin Bird ID</a>
+                <span class="desc">Бесплатное приложение от Cornell Lab. Определяет птиц по фото, 
+                голосу или описанию. Работает офлайн.</span>
+                <span class="url">merlin.allaboutbirds.org</span>
+            </li>
+            <li>
+                <a href="https://www.birdwatching.ru/" target="_blank" rel="noopener">Birdwatching.ru</a>
+                <span class="desc">Русскоязычный портал о наблюдении за птицами: фото, отчёты, 
+                советы по снаряжению, форум.</span>
+                <span class="url">birdwatching.ru</span>
+            </li>
+        </ul>
+
+        <!-- МЕДИА -->
+        <h3 class="section-title">🎬 Медиа и документальное кино</h3>
+        <ul class="links-list">
+            <li>
+                <a href="https://www.bbc.co.uk/programmes/p026xgh4" target="_blank" rel="noopener">BBC: Life of Birds</a>
+                <span class="desc">Легендарный документальный сериал Дэвида Аттенборо 
+                о жизни птиц — от полёта до гнездования. Классика научно-популярного кино.</span>
+                <span class="url">bbc.co.uk</span>
+            </li>
+            <li>
+                <a href="https://www.macaulaylibrary.org/" target="_blank" rel="noopener">Macaulay Library</a>
+                <span class="desc">Крупнейший архив фото, видео и аудио птиц. 
+                Миллионы записей от исследователей и любителей.</span>
+                <span class="url">macaulaylibrary.org</span>
+            </li>
+        </ul>
+
+        <p class="green-small" style="margin-top: 30px;">
+            Все ссылки проверены и ведут на актуальные ресурсы. Если какая-то ссылка не открывается — сообщите автору сайта.
+        </p>
+    </main>
+
+    <footer>
+        <p>&copy; 2025, сайт о птицах. Все права защищены.</p>
+    </footer>
+</body>
+</html>
