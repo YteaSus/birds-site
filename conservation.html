@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Охрана птиц: угрозы, Красная книга, что может сделать каждый">
+    <meta name="keywords" content="охрана птиц, Красная книга, исчезающие виды, заповедники, экология">
+    <meta name="author" content="Иван Иванов">
+    <title>Мир птиц — Охрана</title>
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            background: linear-gradient(135deg, #eaf4ff 0%, #f4f9ff 100%);
+            color: #222;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2c5f8a 0%, #1e4463 100%);
+            color: white;
+            padding: 20px 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        header h1 { margin: 0 0 12px 0; font-size: 28px; letter-spacing: 1px; }
+        nav a {
+            color: white;
+            margin-right: 18px;
+            text-decoration: none;
+            font-size: 15px;
+            padding: 6px 10px;
+            border-radius: 5px;
+            transition: background 0.2s;
+        }
+        nav a:hover { background: rgba(255,255,255,0.2); }
+        nav a.active { background: rgba(255,255,255,0.3); font-weight: bold; }
+
+        main {
+            padding: 30px;
+            max-width: 1000px;
+            margin: 30px auto;
+            background: white;
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(44, 95, 138, 0.15);
+        }
+
+        h2 {
+            color: #1e4463;
+            border-bottom: 3px solid #7fb2dd;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .intro-text {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            margin-top: 35px;
+            color: #1e4463;
+            font-size: 22px;
+            border-left: 5px solid #4a8bc2;
+            padding-left: 12px;
+        }
+
+        /* Угрозы */
+        .threats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 15px;
+            margin: 20px 0 35px;
+        }
+        .threat-card {
+            background: linear-gradient(160deg, #fff5f0 0%, #ffe8e0 100%);
+            border: 1px solid #f0c8b8;
+            border-radius: 10px;
+            padding: 18px;
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+        .threat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(200, 90, 60, 0.15);
+        }
+        .threat-card .emoji {
+            font-size: 32px;
+            display: block;
+            margin-bottom: 8px;
+        }
+        .threat-card h4 {
+            margin: 5px 0;
+            color: #8a3a1a;
+            font-size: 16px;
+        }
+        .threat-card p {
+            font-size: 13px;
+            color: #555;
+            margin: 5px 0 0;
+            line-height: 1.5;
+        }
+
+        /* Красная книга */
+        .redbook-block {
+            margin: 25px 0;
+            padding: 20px;
+            background: linear-gradient(160deg, #fff0f0 0%, #ffe0e0 100%);
+            border-left: 5px solid #c0392b;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(192, 57, 43, 0.1);
+        }
+        .redbook-block h3 {
+            margin-top: 0;
+            color: #8a1a10;
+            font-size: 20px;
+        }
+        .redbook-block p {
+            font-size: 15px;
+            line-height: 1.65;
+            color: #333;
+            margin: 10px 0;
+        }
+        .redbook-block .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-right: 6px;
+            margin-bottom: 6px;
+        }
+        .status-badge.critical { background: #c0392b; color: white; }
+        .status-badge.vulnerable { background: #e67e22; color: white; }
+        .status-badge.rare { background: #f0c419; color: #3a2a10; }
+        .status-badge.recovered { background: #27ae60; color: white; }
+
+        /* Что может сделать каждый */
+        .actions-list {
+            margin: 20px 0;
+            padding: 0;
+            list-style: none;
+        }
+        .actions-list li {
+            background: linear-gradient(160deg, #ffffff 0%, #f0f7ff 100%);
+            border-left: 5px solid #4a8bc2;
+            border-radius: 8px;
+            padding: 14px 18px;
+            margin-bottom: 12px;
+            font-size: 15px;
+            line-height: 1.55;
+            color: #333;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .actions-list li:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 10px rgba(44, 95, 138, 0.12);
+        }
+        .actions-list li strong {
+            color: #1e4463;
+        }
+
+        /* Заповедники */
+        .reserves-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .reserve-card {
+            background: linear-gradient(160deg, #f0fff5 0%, #d8f5e0 100%);
+            border: 1px solid #a8d8b8;
+            border-radius: 10px;
+            padding: 16px;
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+        .reserve-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(39, 174, 96, 0.2);
+        }
+        .reserve-card h4 {
+            margin: 0 0 8px;
+            color: #1a5a2a;
+            font-size: 16px;
+        }
+        .reserve-card p {
+            font-size: 13px;
+            color: #444;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* Итоговый призыв */
+        .call-to-action {
+            margin: 35px 0 15px;
+            padding: 25px;
+            background: linear-gradient(135deg, #2c5f8a 0%, #4a8bc2 100%);
+            color: white;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(44, 95, 138, 0.3);
+        }
+        .call-to-action h3 {
+            margin: 0 0 10px;
+            font-size: 24px;
+            color: #ffe8c0;
+        }
+        .call-to-action p {
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #1e4463, #2c5f8a);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 40px;
+            font-size: 13px;
+        }
+
+        .green-small { color: #4a8bc2; font-size: 12px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🐦 Мир птиц</h1>
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="gallery.html">Галерея</a>
+            <a href="species.html">Виды</a>
+            <a href="habitats.html">Среда обитания</a>
+            <a href="feeding.html">Питание</a>
+            <a href="migration.html">Миграция</a>
+            <a href="conservation.html" class="active">Охрана</a>
+            <a href="links.html">Ссылки</a>
+            <a href="guestbook.html">Гостевая</a>
+            <a href="about.html">О сайте</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Охрана птиц</h2>
+        <p class="intro-text">
+            Многие виды птиц находятся под угрозой исчезновения. Причины разные — от разрушения среды обитания 
+            до изменения климата. Но есть и хорошие новости: благодаря усилиям учёных, экологов и обычных людей 
+            некоторые виды удалось спасти. Вот что важно знать об охране птиц и что может сделать каждый из нас.
+        </p>
+
+        <!-- УГРОЗЫ -->
+        <h3 class="section-title">Основные угрозы</h3>
+        <div class="threats-grid">
+            <div class="threat-card">
+                <span class="emoji">🌳</span>
+                <h4>Разрушение среды обитания</h4>
+                <p>Вырубка лесов, осушение болот, застройка территорий лишают птиц мест для гнездования и кормёжки</p>
+            </div>
+            <div class="threat-card">
+                <span class="emoji">🌡️</span>
+                <h4>Изменение климата</h4>
+                <p>Сдвиг сезонов нарушает timing миграции и размножения — птицы прилетают, когда корм уже исчез</p>
+            </div>
+            <div class="threat-card">
+                <span class="emoji">🧪</span>
+                <h4>Пестициды и загрязнение</h4>
+                <p>Химикаты отравляют насекомых — основу рациона многих птиц — и накапливаются в их организме</p>
+            </div>
+            <div class="threat-card">
+                <span class="emoji">🐈</span>
+                <h4>Домашние кошки</h4>
+                <p>Свободно гуляющие кошки ежегодно убивают миллионы птиц по всему миру</p>
+            </div>
+            <div class="threat-card">
+                <span class="emoji">🏢</span>
+                <h4>Стеклянные здания</h4>
+                <p>Птицы не видят прозрачных преград и разбиваются о стёкла высоток</p>
+            </div>
+            <div class="threat-card">
+                <span class="emoji">🎯</span>
+                <h4>Браконьерство</h4>
+                <p>Незаконная охота и отлов особенно опасны для редких видов</p>
+            </div>
+        </div>
+
+        <!-- КРАСНАЯ КНИГА -->
+        <h3 class="section-title">Красная книга</h3>
+        <div class="redbook-block">
+            <h3>Что это и зачем нужно</h3>
+            <p>
+                <strong>Красная книга</strong> — список редких и находящихся под угрозой исчезновения видов. 
+                Существует международная Красная книга (МСОП) и национальные — в том числе Красная книга России. 
+                Виды в ней распределены по категориям редкости.
+            </p>
+
+            <p><strong>Категории редкости:</strong></p>
+            <span class="status-badge critical">Исчезающие</span>
+            <span class="status-badge vulnerable">Уязвимые</span>
+            <span class="status-badge rare">Редкие</span>
+            <span class="status-badge recovered">Восстановленные</span>
+
+            <p style="margin-top: 15px;">
+                Из птиц нашего сайта в Красные книги разных уровней включены: 
+                <strong>козодой</strong> (сокращается из-за исчезновения пустошей), 
+                <strong>вальдшнеп</strong> (охраняется в ряде регионов), 
+                <strong>серая сова</strong> (в некоторых областях редка). 
+                Зяблик и лебедь-шипун — обычные виды, но и они нуждаются в заботе.
+            </p>
+        </div>
+
+        <!-- ЗАПОВЕДНИКИ -->
+        <h3 class="section-title">Заповедники и охраняемые территории</h3>
+        <p style="font-size: 15px; line-height: 1.65;">
+            В России существует сеть особо охраняемых природных территорий (ООПТ): заповедники, национальные парки, 
+            заказники. Здесь запрещена хозяйственная деятельность, и птицы могут спокойно гнездиться.
+        </p>
+        <div class="reserves-grid">
+            <div class="reserve-card">
+                <h4>🌿 Заповедники</h4>
+                <p>Полностью закрытые территории, где природа сохраняется в естественном виде. Примеры: Баргузинский, 
+                Воронежский, Астраханский.</p>
+            </div>
+            <div class="reserve-card">
+                <h4>🏞️ Национальные парки</h4>
+                <p>Охраняемые территории, открытые для туризма. Примеры: Лосиный Остров, Куршская коса, 
+                Прибайкальский.</p>
+            </div>
+            <div class="reserve-card">
+                <h4>🦆 Заказники</h4>
+                <p>Территории с частичным режимом охраны — обычно создаются для защиты конкретных видов 
+                или в период гнездования.</p>
+            </div>
+            <div class="reserve-card">
+                <h4>💧 Водно-болотные угодья</h4>
+                <p>Особо важны для водоплавающих птиц — место отдыха на миграции и зимовки. Охраняются 
+                по Рамсарской конвенции.</p>
+            </div>
+        </div>
+
+        <!-- ЧТО МОЖЕТ СДЕЛАТЬ КАЖДЫЙ -->
+        <h3 class="section-title">Что может сделать каждый</h3>
+        <ul class="actions-list">
+            <li>
+                <strong>Не разорять гнёзда.</strong> Если нашли гнездо — не трогайте его, 
+                не подходите близко, не шумите. Птицы-родители могут бросить кладку.
+            </li>
+            <li>
+                <strong>Подкармливать птиц зимой.</strong> Кормушка с семечками, крупой или несолёным салом 
+                спасёт много птиц в морозы. Главное — делать это регулярно.
+            </li>
+            <li>
+                <strong>Не мусорить в лесу и парках.</strong> Мусор не только портит природу, 
+                но и может стать ловушкой для птиц.
+            </li>
+            <li>
+                <strong>Не использовать пестициды в саду.</strong> Химикаты уничтожают насекомых — 
+                основу питания многих птиц.
+            </li>
+            <li>
+                <strong>Держать кошку дома или на поводке.</strong> Так вы сохраните и птиц, и 
+                саму кошку в безопасности.
+            </li>
+            <li>
+                <strong>Делать кормушки и домики.</strong> Повесить скворечник или синичник — простой, 
+                но реальный вклад в сохранение птиц.
+            </li>
+            <li>
+                <strong>Поддерживать заповедники и экологические организации.</strong> 
+                Даже небольшое пожертвование или волонтёрская помощь помогают делу охраны природы.
+            </li>
+            <li>
+                <strong>Участвовать в наблюдениях за птицами.</strong> Гражданская наука — например, 
+                проекты по подсчёту птиц — помогает учёным отслеживать изменения.
+            </li>
+            <li>
+                <strong>Рассказывать другим.</strong> Чем больше людей знают о проблемах птиц, 
+                тем больше их будут защищать.
+            </li>
+        </ul>
+
+        <!-- ПРИЗЫВ -->
+        <div class="call-to-action">
+            <h3>🐦 Берегите птиц!</h3>
+            <p>
+                Птицы — неотъемлемая часть природы. Они распространяют семена, уничтожают вредителей, 
+                радуют нас своим пением. Сохранить их — задача каждого из нас. 
+                Начните с малого: повесьте кормушку за окном.
+            </p>
+        </div>
+
+        <p class="green-small">
+            Информация основана на данных Международного союза охраны природы (МСОП) и Красной книги России.
+        </p>
+    </main>
+
+    <footer>
+        <p>&copy; 2026, сайт о птицах. Все права защищены.</p>
+    </footer>
+</body>
+</html>
