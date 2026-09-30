@@ -8,22 +8,110 @@
     <title>Мир птиц — Главная</title>
     <style>
         body { font-family: Arial, sans-serif; margin: 0; background: #f4f9ff; color: #222; }
-        header { background: #2c5f8a; color: white; padding: 15px; }
-        header h1 { margin: 0 0 10px 0; }
-        nav a { color: white; margin-right: 15px; text-decoration: none; }
-        nav a:hover { text-decoration: underline; }
+        header {
+            background: linear-gradient(135deg, #2c5f8a 0%, #1e4463 100%);
+            color: white;
+            padding: 15px 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        header h1 { margin: 0 0 10px 0; font-size: 24px; letter-spacing: 1px; }
+        nav {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 2px;
+            align-items: center;
+            overflow-x: auto;
+            padding-bottom: 4px;
+        }
+        nav::-webkit-scrollbar { height: 4px; }
+        nav::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.3); border-radius: 2px; }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 13px;
+            padding: 5px 8px;
+            border-radius: 5px;
+            transition: background 0.2s;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        nav a:hover { background: rgba(255,255,255,0.2); }
+        nav a.active { background: rgba(255,255,255,0.3); font-weight: bold; }
         main { padding: 20px; max-width: 900px; margin: 20px auto; background: white; border-radius: 8px; }
         footer { background: #2c5f8a; color: white; text-align: center; padding: 10px; margin-top: 20px; }
         .red { color: red; }
         .big { font-size: 24px; }
         .green-small { color: green; font-size: 12px; }
         img { max-width: 100%; height: auto; margin: 5px; }
+        .site-search {
+            background: linear-gradient(160deg, #f0f7ff 0%, #e0eefc 100%);
+            border: 1px solid #d6e6f5;
+            border-radius: 12px;
+            padding: 20px 22px;
+            margin: 25px 0;
+            box-shadow: 0 4px 12px rgba(44, 95, 138, 0.08);
+        }
+        .site-search h3 {
+            margin: 0 0 8px;
+            color: #1e4463;
+            font-size: 18px;
+        }
+        .site-search > p {
+            font-size: 14px;
+            color: #555;
+            margin: 0 0 15px;
+        }
+        .search-form {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .search-form input[type="text"] {
+            flex: 1;
+            min-width: 200px;
+            padding: 12px 16px;
+            border: 2px solid #b8d4ec;
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            background: white;
+        }
+        .search-form input[type="text"]:focus {
+            outline: none;
+            border-color: #4a8bc2;
+            box-shadow: 0 0 0 3px rgba(74, 139, 194, 0.15);
+        }
+        .search-form button {
+            padding: 12px 28px;
+            background: linear-gradient(135deg, #2c5f8a, #4a8bc2);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        .search-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(44, 95, 138, 0.3);
+        }
+        .search-form button:active {
+            transform: translateY(0);
+        }
+        .search-hint {
+            font-size: 12px;
+            color: #7a9ab8;
+            margin: 10px 0 0;
+        }
     </style>
 </head>
 <body>
     <header>
         <h1>🐦 Мир птиц</h1>
-        <nav>
+       <nav>
             <a href="index.html">Главная</a>
             <a href="gallery.html">Галерея</a>
             <a href="species.html">Виды</a>
@@ -32,6 +120,9 @@
             <a href="migration.html">Миграция</a>
             <a href="conservation.html">Охрана</a>
             <a href="links.html">Ссылки</a>
+            <a href="xml.html">XML</a>
+            <a href="database.html">БД</a>
+            <a href="rss.html">RSS</a>
             <a href="guestbook.html">Гостевая</a>
             <a href="about.html">О сайте</a>
         </nav>
@@ -39,6 +130,15 @@
 
     <main>
         <h2>Добро пожаловать на сайт о птицах!</h2>
+              <div class="site-search">
+            <h3>🔍 Поиск по сайту</h3>
+            <p>Введите ключевое слово — поиск найдёт его на всех страницах сайта.</p>
+            <form class="search-form" onsubmit="return runSearch(event);">
+                <input type="text" id="search-input" placeholder="Например: зяблик, миграция, лебедь..." required>
+                <button type="submit">Искать</button>
+            </form>
+            <p class="search-hint">Поиск работает через Google Programmable Search.</p>
+        </div>
         <p>Этот сайт посвящён удивительному миру пернатых. Здесь вы узнаете о разных видах птиц, их среде обитания, питании и миграции.</p>
         
         <p class="red big">Птицы — наши соседи по планете!</p>
@@ -60,8 +160,33 @@
         <p>Сайт создан студентом: <strong>Суслов Яков</strong>, группа БИЗ-Б23.</p>
     </main>
 
-    <footer>
-        <p>&copy; 2026, сайт о птицах. Все права защищены.</p>
+       <footer>
+        <p>&copy; 2025, сайт о птицах. Автор: Суслов Яков, группа БИЗ-Б23.</p>
     </footer>
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=113201977', 'ym');
+
+        ym(113201977, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/113201977" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+
+     <script>
+            function runSearch(event) {
+                event.preventDefault();
+                var query = document.getElementById('search-input').value.trim();
+                if (!query) return false;
+                var url = 'https://cse.google.com/cse?cx=106ea04bdef5b49d1#gsc.tab=0&gsc.q=' + encodeURIComponent(query);
+                window.open(url, '_blank');
+                return false;
+            }
+        </script>
 </body>
 </html>
